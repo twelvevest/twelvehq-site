@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twelve | Private Capital and Advisory</title>
+<meta name="description" content="Twelve is an advisory and private capital syndication firm mobilizing capital via trustee-led syndicates for growth businesses, VC funds and alternative assets in Africa.">
+<meta property="og:title" content="Twelve | Private Capital and Advisory">
+<meta property="og:description" content="Mobilizing capital for Africa's growth businesses, VC funds and alternative assets.">
+<meta property="og:url" content="https://twelvehq.org">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%231F5577'/%3E%3Cpath d='M18 40 50 16 82 40V84H18Z' fill='%2362AE45'/%3E%3Cpath d='M28 42 50 26 72 42Z' fill='%231F5577'/%3E%3Crect x='18' y='46' width='64' height='5' fill='%231F5577'/%3E%3Crect x='26' y='62' width='48' height='7' rx='3.5' fill='%231F5577'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Twelve brand colours */
+    --navy:#0F2C40;
+    --navy-deep:#0A1F2E;
+    --navy-soft:#163A52;
+    --green:#4E8A3C;
+    --green-dark:#3F7231;
+    --green-light:#A9C99A;
+    --bg:#F5F4F0;
+    --paper:#FDFCFA;
+    --line:#E3E0D8;
+    --text:#17232C;
+    --muted:#5C646B;
+    --max:1140px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:Inter,system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.65;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Outfit,system-ui,sans-serif;font-weight:600;line-height:1.12;letter-spacing:-.015em}
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  .eyebrow{font-size:.74rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+  .btn{display:inline-block;padding:14px 26px;font-weight:600;font-size:.95rem;text-decoration:none;transition:background .15s,color .15s;border-radius:6px}
+  .btn-green{background:var(--green);color:#fff}
+  .btn-green:hover{background:var(--green-dark)}
+  .btn-line{border:1px solid rgba(255,255,255,.4);color:#fff}
+  .btn-line:hover{background:#fff;color:var(--navy)}
+
+  /* Logo */
+  .logo{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none;font-family:Outfit,sans-serif;font-size:1.6rem;font-weight:700;letter-spacing:.01em}
+  .logo svg{width:34px;height:34px;flex-shrink:0}
+
+  /* Nav */
+  nav.top{position:sticky;top:0;top:env(safe-area-inset-top,0px);z-index:20;background:var(--navy);box-shadow:0 1px 0 rgba(255,255,255,.08)}
+  nav.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{color:rgba(255,255,255,.8);text-decoration:none;font-size:.92rem}
+  .nav-links a:hover{color:#fff}
+  .nav-links .btn{padding:10px 18px;color:#fff}
+  @media(max-width:860px){.nav-links a:not(.btn){display:none}}
+
+  /* Hero */
+  .hero{background:var(--navy);color:#fff;padding:96px 0 100px;position:relative;overflow:hidden}
+  .hero-mark{position:absolute;right:-60px;top:40px;width:460px;opacity:.05;pointer-events:none}
+  .hero .wrap{position:relative}
+  .hero h1{font-size:clamp(2.4rem,6vw,4.3rem);max-width:840px;margin:18px 0 24px}
+  .hero h1 span{color:var(--green-light)}
+  .hero p{font-size:1.14rem;max-width:640px;color:rgba(255,255,255,.8);margin-bottom:36px}
+  .hero h1,.head h2,.cta h2{text-wrap:balance}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:72px;padding-top:30px;border-top:1px solid rgba(255,255,255,.15)}
+  .hero-meta div{font-size:.86rem;color:rgba(255,255,255,.65)}
+  .hero-meta b{display:block;font-family:Outfit,sans-serif;font-weight:600;font-size:2.1rem;color:#fff;line-height:1.1;margin-bottom:4px}
+  @media(max-width:760px){.hero-meta{grid-template-columns:1fr 1fr}}
+
+  section{padding:96px 0}
+  .head{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;margin-bottom:52px;align-items:end}
+  .head h2{font-size:clamp(1.9rem,4vw,2.8rem);color:var(--navy)}
+  .head p{color:var(--muted);font-size:1.04rem}
+  @media(max-width:860px){.head{grid-template-columns:1fr;gap:16px}}
+
+  /* Practices */
+  .practices{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .practice{padding:36px 32px;background:var(--paper);border:1px solid var(--line);border-radius:10px;border-top:3px solid var(--green)}
+  .practice .n{font-family:Outfit,sans-serif;color:var(--green);font-weight:600}
+  .practice h3{font-size:1.5rem;margin:0 0 12px;color:var(--navy)}
+  .practice p{color:var(--muted)}
+  .practice .for{margin-top:18px;font-size:.85rem;color:var(--navy);font-weight:500}
+  @media(max-width:760px){.practices{grid-template-columns:1fr}.practice{padding:28px 22px}}
+
+  /* Group companies */
+  .group{background:var(--navy);color:#fff}
+  .group .head h2{color:#fff}
+  .group .head p{color:rgba(255,255,255,.72)}
+  .structure{text-align:center}
+  .parent{display:inline-flex;align-items:center;gap:12px;padding:14px 28px;background:var(--navy-deep);border:1px solid var(--green);border-radius:8px;font-family:Outfit,sans-serif;font-size:1.35rem;font-weight:600}
+  .parent svg{width:28px;height:28px}
+  .parent small{font-family:Inter,sans-serif;font-size:.7rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .stem{width:2px;height:32px;background:rgba(255,255,255,.25);margin:0 auto}
+  .branches{height:2px;background:rgba(255,255,255,.25);margin:0 16.66%}
+  .cos{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:32px}
+  .co{border:1px solid rgba(255,255,255,.14);border-radius:10px;padding:32px 26px;position:relative;display:flex;flex-direction:column;background:var(--navy-soft)}
+  .co::before{content:"";position:absolute;top:-33px;left:50%;width:2px;height:32px;background:rgba(255,255,255,.25)}
+  .co .role{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--green-light);font-weight:600}
+  .co h3{font-size:1.65rem;margin:10px 0 12px}
+  .co p{color:rgba(255,255,255,.78);flex:1;font-size:.97rem}
+  .co a{margin-top:22px;font-size:.9rem;font-weight:500;text-decoration:none;color:#fff;border-bottom:2px solid var(--green);align-self:flex-start;padding-bottom:2px}
+  @media(max-width:900px){.cos{grid-template-columns:1fr;margin-top:22px}.branches,.co::before{display:none}.stem{height:0}}
+
+  /* Track record */
+  .record{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .rec{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px 26px}
+  .rec b{display:block;font-family:Outfit,sans-serif;font-weight:600;font-size:2.3rem;line-height:1;color:var(--navy)}
+  .rec b small{font-size:1rem;font-weight:500;color:var(--green)}
+  .rec h4{font-size:.98rem;font-weight:600;margin:12px 0 6px;color:var(--text)}
+  .rec p{color:var(--muted);font-size:.92rem}
+  @media(max-width:1000px){.record{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.record{grid-template-columns:1fr}}
+
+  /* Who */
+  .who{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .who-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+  .who-grid h3{font-size:1.2rem;margin-bottom:8px;padding-top:18px;border-top:3px solid var(--green);color:var(--navy)}
+  .who-grid p{color:var(--muted);font-size:.95rem}
+  @media(max-width:860px){.who-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:520px){.who-grid{grid-template-columns:1fr}}
+
+
+  .co p.co-stat{flex:0;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:.88rem;color:rgba(255,255,255,.75)}
+  .co p.co-stat b{font-family:Outfit,sans-serif;font-size:1.3rem;font-weight:600;color:#fff;margin-right:4px}
+  .co p.restrict{flex:0;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:.85rem;color:rgba(255,255,255,.65)}
+  .contact{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center}
+  .contact h2{font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 14px;color:var(--navy)}
+  .contact p{color:var(--muted)}
+  .email-box{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:28px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+  .email-label{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
+  .email{font-family:Outfit,sans-serif;font-size:clamp(1.2rem,3vw,1.6rem);font-weight:600;color:var(--navy);text-decoration:none;word-break:break-all;user-select:all}
+  .copy{margin-top:6px;border:1px solid var(--line);background:var(--bg);color:var(--navy);font:inherit;font-size:.85rem;font-weight:500;padding:8px 14px;border-radius:6px;cursor:pointer}
+  .copy:hover{border-color:var(--green)}
+  .copy:focus-visible,.btn:focus-visible,a:focus-visible{outline:2px solid var(--green);outline-offset:3px}
+  @media(max-width:860px){.contact{grid-template-columns:1fr;gap:24px}}
+  .notice{display:block;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.12)}
+  .notice p{font-size:.78rem;line-height:1.6;color:rgba(255,255,255,.55);max-width:none}
+  .notice strong{color:rgba(255,255,255,.8)}
+  footer{background:var(--navy-deep);color:rgba(255,255,255,.65);padding:44px 0;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+  .foot-links{display:flex;gap:22px;flex-wrap:wrap}
+  .foot-links a{text-decoration:none}
+  .foot-links a:hover{color:#fff}
+</style>
+</head>
+<body>
+
+<!-- Twelve house mark, reused below -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="mark" viewBox="0 0 100 100">
+      <path d="M8 34 50 4 92 34V96H8Z" fill="#62AE45"/>
+      <path d="M22 36 50 16 78 36Z" fill="currentColor"/>
+      <rect x="8" y="42" width="84" height="6" fill="currentColor"/>
+      <rect x="16" y="66" width="68" height="9" rx="4.5" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<nav class="top">
+  <div class="wrap">
+    <a href="#" class="logo" style="color:#fff"><svg style="color:#0F2C40"><use href="#mark"/></svg>Twelve</a>
+    <div class="nav-links">
+      <a href="#services">What we do</a>
+      <a href="#group">Our companies</a>
+      <a href="#record">Track record</a>
+      <a href="#contact" class="btn btn-green">Contact us</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <svg class="hero-mark" viewBox="0 0 100 100" style="color:#0F2C40"><use href="#mark"/></svg>
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--green-light)">Private Capital · Advisory · Venture Building</div>
+    <h1>Private capital for Africa's growth businesses and funds</h1>
+    <p>Twelve is an advisory and private capital syndication firm. We mobilize capital through trustee-led syndicates for growth businesses, venture capital funds and alternative assets.</p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn btn-green">Contact us</a>
+      <a href="#services" class="btn btn-line">Our services</a>
+    </div>
+  </div>
+</header>
+
+<section id="services">
+  <div class="wrap">
+    <div class="head">
+      <h2>What we do</h2>
+      <p>We structure deals, bring investors together and oversee how the capital is governed.</p>
+    </div>
+    <div class="practices">
+      <div class="practice">
+        <h3>Private Capital Syndication</h3>
+        <p>We mobilize capital through trustee-led syndicates for growth businesses, VC funds and alternative assets. As a fund of funds syndicator and advisor, we enable accredited professionals and institutional investors to access Africa's leading VC and alternative asset funds.</p>
+        <div class="for">For accredited professionals and institutional investors</div>
+      </div>
+      <div class="practice">
+        <h3>Capital Structuring and Startup Advisory</h3>
+        <p>We advise growth businesses on how to raise capital, including the right mix of equity and debt, and prepare them for conversations with investors.</p>
+        <div class="for">For founders and growth businesses</div>
+      </div>
+      <div class="practice">
+        <h3>Technical Advisory</h3>
+        <p>We provide technical advisory services to private institutions, development finance institutions and government agencies to execute high priority projects for SME investor readiness, growth and economic development.</p>
+        <div class="for">For private institutions, DFIs and government agencies</div>
+      </div>
+      <div class="practice">
+        <h3>Venture Building</h3>
+        <p>We build and operate companies that widen access to investing. Today these are Biya, TGI Club and Twelvevest.</p>
+        <div class="for">See our companies below</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="group" class="group">
+  <div class="wrap">
+    <div class="head">
+      <h2>Our companies</h2>
+      <p>Twelve is the holding company for Biya, TGI Club and Twelvevest. Together, these companies take people from learning about money with gamified tools to co-investing with others within syndicates.</p>
+    </div>
+
+    <div class="structure">
+      <div class="parent"><svg style="color:#0A1F2E"><use href="#mark"/></svg><span>Twelve <small>&nbsp;Holding company</small></span></div>
+      <div class="stem"></div>
+      <div class="branches"></div>
+    </div>
+
+    <div class="cos">
+      <div class="co">
+        <div class="role">Education</div>
+        <h3>Biya</h3>
+        <p>The Game of Clubs. A gamified financial education platform for university students across Africa.</p>
+        <p class="co-stat"><b>11,000+</b> students reached across 6 Nigerian universities</p>
+        <a href="https://www.biyalearn.com" target="_blank" rel="noopener">Visit Biya</a>
+      </div>
+      <div class="co">
+        <div class="role">Community</div>
+        <h3>TGI Club</h3>
+        <p>The Green Investment Club is a community of 2,000+ investors in 38 countries who learn and invest together. Many of Twelve's syndicates are formed within the club.</p>
+        <a href="https://www.thetgiclub.com" target="_blank" rel="noopener">Visit TGI Club</a>
+      </div>
+      <div class="co">
+        <div class="role">Members only</div>
+        <h3>Twelvevest</h3>
+        <p>A private digital platform available only to members of TGI Club, where members view and manage their participation in club opportunities.</p>
+        <p class="restrict">Twelvevest is not open to the public. It does not advertise or solicit investment from the general public, and access is by TGI Club membership only.</p>
+        <a href="https://www.twelvevest.com" target="_blank" rel="noopener">Member sign in</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="record">
+  <div class="wrap">
+    <div class="head">
+      <h2>Track record</h2>
+      <p>Capital deployed across private credit and venture capital.</p>
+    </div>
+    <div class="record">
+      <div class="rec">
+        <b>$30M<small>+</small></b>
+        <h4>Private credit structured</h4>
+        <p>Across fintech, agricultural projects, logistics and real estate projects.</p>
+      </div>
+      <div class="rec">
+        <b>90<small>+</small></b>
+        <h4>Startups in our VC exposure</h4>
+        <p>As an LP in two leading African venture capital funds.</p>
+      </div>
+      <div class="rec">
+        <b>$14M</b>
+        <h4>LAF Fund III</h4>
+        <p>Lead LP and LPAC member. 56 portfolio companies.</p>
+      </div>
+      <div class="rec">
+        <b>$40M</b>
+        <h4>Ventures Platform Fund IV</h4>
+        <p>LP alongside leading development finance institutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clients" class="who">
+  <div class="wrap">
+    <div class="head">
+      <h2>Who we serve</h2>
+    </div>
+    <div class="who-grid">
+      <div><h3>Accredited professionals</h3><p>Access to leading African VC and alternative asset funds through trustee-led syndicates.</p></div>
+      <div><h3>Institutional investors</h3><p>Sourcing, structuring and syndication into African funds and assets.</p></div>
+      <div><h3>Growth businesses</h3><p>Advice on structuring your raise, and access to our investor network.</p></div>
+      <div><h3>DFIs and government</h3><p>Programme design and delivery for SME investor readiness and economic development.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap contact">
+    <div>
+      <h2>Contact</h2>
+      <p>For enquiries about our advisory services, syndication or our companies, email us.</p>
+    </div>
+    <div class="email-box">
+      <span class="email-label">Email</span>
+      <a class="email" href="mailto:support@twelvevest.com">support@twelvevest.com</a>
+      <button type="button" id="copy-email" class="copy">Copy address</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="#" class="logo" style="font-size:1.3rem"><svg style="color:#0A1F2E;width:28px;height:28px"><use href="#mark"/></svg>Twelve</a>
+    <div class="foot-links">
+      <a href="https://www.biyalearn.com" target="_blank" rel="noopener">Biya</a>
+      <a href="https://www.thetgiclub.com" target="_blank" rel="noopener">TGI Club</a>
+      <a href="https://www.twelvevest.com" target="_blank" rel="noopener">Twelvevest</a>
+      <a href="mailto:support@twelvevest.com">support@twelvevest.com</a>
+    </div>
+    <div>© <span id="yr">2026</span> Twelve. All rights reserved.</div>
+  </div>
+  <div class="wrap notice">
+    <p><strong>Important notice.</strong> This website is for information only. Nothing on it is an offer to sell, or a solicitation of an offer to buy, any security, fund interest or other investment product, and it is not investment, legal or tax advice. Investment opportunities are offered only through private arrangements to eligible accredited, professional or institutional investors, and to members of TGI Club where applicable, in line with the laws of their jurisdiction. Figures shown reflect the track record of Twelve's leadership. Past performance is not a reliable indicator of future results, and all investments carry risk, including loss of capital.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+document.getElementById('copy-email').addEventListener('click',function(){
+  var b=this, t='support@twelvevest.com';
+  function done(){b.textContent='Copied';setTimeout(function(){b.textContent='Copy address'},1800)}
+  function fallback(){var r=document.createRange();r.selectNodeContents(document.querySelector('.email'));var s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected. Press Ctrl or Cmd + C'}
+  try{navigator.clipboard.writeText(t).then(done,fallback)}catch(e){fallback()}
+});
+</script>
+</body>
+</html>
